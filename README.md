@@ -1,12 +1,17 @@
 # RESTfulHomeWork
 #### Installation
+Linux:
 ```
 $ ./gradlew build
-```  
+```
+Windows:
+```
+$ gradlew.bat build
+``` 
 #### Launch
 ```
-$ ./build/libs/RESTfulHomeWork-1.0.jar
-```  
+$ java -jar build/libs/rest-service-1.0.jar
+```
 ## Use
 ```
 ...

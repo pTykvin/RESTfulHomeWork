@@ -2,11 +2,20 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'war'
+apply plugin: 'application'
+
+mainClassName = 'hello.Application'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 jar {
+    baseName = 'rest-service'
+    version =  '1.0'
+}
+
+war {
     baseName = 'rest-service'
     version =  '1.0'
 }
