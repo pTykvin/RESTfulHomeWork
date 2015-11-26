@@ -6,7 +6,7 @@ $ ./gradlew build
 ```
 Windows:
 ```
-$ gradlew.bat build
+gradlew.bat build
 ``` 
 #### Launch
 ```

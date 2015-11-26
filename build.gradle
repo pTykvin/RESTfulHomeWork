@@ -5,7 +5,7 @@ apply plugin: 'spring-boot'
 apply plugin: 'war'
 apply plugin: 'application'
 
-mainClassName = 'hello.Application'
+mainClassName = 'ru.tykvin.Application'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
