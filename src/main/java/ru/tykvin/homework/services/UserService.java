@@ -4,7 +4,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import ru.tykvin.homework.dao.IUserDao;
-import ru.tykvin.homework.domain.User;
+import ru.tykvin.homework.domain.Student;
 
 public class UserService implements IUserService {
 
@@ -13,8 +13,8 @@ public class UserService implements IUserService {
 
     @Override
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-    public void saveUser(User user) {
-        dao.save(user);
+    public void saveUser(Student student) {
+        dao.save(student);
     }
 
     public void setDao(IUserDao dao) {

@@ -9,8 +9,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "t_user")
+public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

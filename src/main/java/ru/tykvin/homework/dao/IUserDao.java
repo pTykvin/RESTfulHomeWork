@@ -1,7 +1,7 @@
 package ru.tykvin.homework.dao;
 
-import ru.tykvin.homework.domain.User;
+import ru.tykvin.homework.domain.Student;
 
 public interface IUserDao {
-    public void save(User user);
+    public void save(Student student);
 }

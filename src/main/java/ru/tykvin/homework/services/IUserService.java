@@ -1,9 +1,9 @@
 package ru.tykvin.homework.services;
 
-import ru.tykvin.homework.domain.User;
+import ru.tykvin.homework.domain.Student;
 
 public interface IUserService {
 
-    public void saveUser(User user);
+    public void saveUser(Student student);
 
 }
