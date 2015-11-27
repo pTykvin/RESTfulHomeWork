@@ -1,5 +1,5 @@
 # RESTfulHomeWork
-#### Installation
+#### Build
 Linux:
 ```
 $ ./gradlew build
