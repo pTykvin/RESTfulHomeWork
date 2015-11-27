@@ -1,4 +1,4 @@
-package hello;
+package ru.tykvin.homework;
 
 public class Greeting {
 
