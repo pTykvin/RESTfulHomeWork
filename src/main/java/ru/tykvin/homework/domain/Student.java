@@ -3,7 +3,6 @@ package ru.tykvin.homework.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -13,7 +12,7 @@ import javax.validation.constraints.NotNull;
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private long id;
 
     @NotNull
@@ -51,4 +50,5 @@ public class Student {
     public void setLast_name(String last_name) {
         this.last_name = last_name;
     }
+
 }

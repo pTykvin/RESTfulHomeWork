@@ -5,7 +5,7 @@ apply plugin: 'spring-boot'
 apply plugin: 'war'
 apply plugin: 'application'
 
-mainClassName = 'ru.tykvin.homework.Main'
+mainClassName = 'ru.tykvin.homework.Application'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -36,9 +36,6 @@ buildscript {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
-//    compile("commons-logging:commons-logging")
-//    compile("commons-dbcp:commons-dbcp:1.2.2")
-    //compile("org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1")
 
     runtime ("org.postgresql:postgresql:9.3-1100-jdbc4")
 
