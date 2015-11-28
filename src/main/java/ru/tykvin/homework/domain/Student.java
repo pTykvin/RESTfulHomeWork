@@ -17,11 +17,16 @@ public class Student {
     private long id;
 
     @NotNull
-    @Column(name = "first_name")
-    private String first_name;
-    @NotNull
-    @Column(name = "last_name")
-    private String last_name;
+    @Column
+    private String first_name, last_name;
+
+    public Student() {
+    }
+
+    public Student(String firstName, String lastName) {
+        this.first_name = firstName;
+        this.last_name = lastName;
+    }
 
     public long getId() {
         return id;
