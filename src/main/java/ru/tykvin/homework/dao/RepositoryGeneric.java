@@ -1,11 +1,15 @@
 package ru.tykvin.homework.dao;
 
 import java.util.Collection;
+import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
+
+import ru.tykvin.homework.domain.Student;
 
 @Repository
 public class RepositoryGeneric<T> implements IRepositoryGeneric<T> {
@@ -24,15 +28,15 @@ public class RepositoryGeneric<T> implements IRepositoryGeneric<T> {
     }
 
     @Override
-    public T save(T emp) {
-        entityManager.persist(emp);
+    public T save(T entity) {
+        entityManager.persist(entity);
         entityManager.flush();
-        return emp;
+        return entity;
     }
 
     @Override
-    public void delete(T emp) {
-        entityManager.remove(emp);
+    public void delete(T entity) {
+        entityManager.remove(entity);
     }
 
     @Override
@@ -41,18 +45,32 @@ public class RepositoryGeneric<T> implements IRepositoryGeneric<T> {
     }
 
     @Override
-    public T edit(T emp) {
-        return entityManager.merge(emp);
+    public T update(T entity) {
+        return entityManager.merge(entity);
     }
 
     @Override
-    public T find(Long empId) {
-        return entityManager.find(type, empId);
+    public T find(Long id) {
+        return entityManager.find(type, id);
     }
 
     @Override
     public Collection<T> findAll() {
         return entityManager.createQuery("from " + type.getSimpleName(), type).getResultList();
+    }
+
+    @Override
+    public void saveAll(List<T> entities) {
+        for (T e : entities) {
+            entityManager.persist(e);
+        }
+        entityManager.flush();
+        entityManager.clear();
+    }
+
+    @Override
+    public void deleteAll() {
+        entityManager.createQuery("delete " + type.getSimpleName()).executeUpdate();
     }
 
 }

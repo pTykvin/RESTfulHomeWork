@@ -6,16 +6,16 @@ package ru.tykvin.homework;
 public class Help {
     public static final String text = "<style>body{ padding: 30 }</style>" +
             "Использование:<br>" +
-            "/: получить эту страницу" +
-            "/student [GET]: список студентов<br>" +
-            "/student [POST]{first_name=&last_name=}: добавить студента<br>" +
-            "/student/{id} [GET]: получить студента с {id}<br>" +
-            "/student/{id} [DELETE]: удалить студента {id}<br>" +
-            "/group [GET]: получить список групп со студентами<br>" +
-            "/group [POST]{number=}: добаить группу с номером {number}<br>" +
-            "/group/{id} [GET]: получить группу {id}<br>" +
-            "/group/{id} [DELETE]: удалить группу {id}<br>" +
-            "/group/{id}/student [GET]: список студентов группы с id {id}<br>" +
-            "/group/{id}/student/{student_id} [PUT]: переместить студента {student_id} в группу {id}<br>" +
-            "/group/{id}/student/{student_id} [DELETE]: убрать студента {student_id} из группы {id}<br>";
+            "<b>/:</b> получить эту страницу<br>" +
+            "<b>/student [GET]:</b> список студентов<br>" +
+            "<b>/student [POST]{\"first_name\":\"\",\"last_name\":\"\"}:</b> добавить студента<br>" +
+            "<b>/student/{id} [GET]:</b> получить студента с {id}<br>" +
+            "<b>/student/{id} [DELETE]:</b> удалить студента {id}<br>" +
+            "<b>/group [GET]:</b> получить список групп со студентами<br>" +
+            "<b>/group [POST]{\"number\":\"\"}:</b> добаить группу с номером {number}<br>" +
+            "<b>/group/{id} [GET]:</b> получить группу {id}<br>" +
+            "<b>/group/{id} [DELETE]:</b> удалить группу {id}<br>" +
+            "<b>/group/{id}/student [GET]:</b> список студентов группы с id {id}<br>" +
+            "<b>/group/{id}/student/{student_id} [PUT]:</b> переместить студента {student_id} в группу {id}<br>" +
+            "<b>/group/{id}/student/{student_id} [DELETE]:</b> убрать студента {student_id} из группы {id}<br>";
 }

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import ru.tykvin.homework.dao.IRepositoryGroup;
 import ru.tykvin.homework.dao.IRepositoryStudent;
 import ru.tykvin.homework.domain.Group;
-import ru.tykvin.homework.domain.Student;
 
 @Service
 public class ServiceGroupOperations implements IServiceGroupOperations{
@@ -22,14 +21,14 @@ public class ServiceGroupOperations implements IServiceGroupOperations{
     public void removeStudentFromGroup(long groupId, long student) {
         Group group = groupRepository.find(groupId);
         group.getStudents().remove(studentRepository.find(student));
-        groupRepository.edit(group);
+        groupRepository.update(group);
     }
 
     @Override
     public void moveStudentToGroup(long groupId, long student) {
         Group group = groupRepository.find(groupId);
         group.getStudents().add(studentRepository.find(student));
-        groupRepository.edit(group);
+        groupRepository.update(group);
     }
 
 }

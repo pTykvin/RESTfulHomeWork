@@ -2,6 +2,7 @@ package ru.tykvin.homework.domain;
 
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -69,4 +70,5 @@ public class Group {
     public void setStudents(Collection<Student> students) {
         this.students = students;
     }
+
 }

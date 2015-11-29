@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "t_user")
+@Table(name = "t_student")
 public class Student {
 
     @Id
@@ -51,4 +51,25 @@ public class Student {
         this.last_name = last_name;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Student student = (Student) o;
+
+        if (id != student.id) return false;
+        if (first_name != null ? !first_name.equals(student.first_name) : student.first_name != null) return false;
+        if (last_name != null ? !last_name.equals(student.last_name) : student.last_name != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (first_name != null ? first_name.hashCode() : 0);
+        result = 31 * result + (last_name != null ? last_name.hashCode() : 0);
+        return result;
+    }
 }

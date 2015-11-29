@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,8 +37,8 @@ public class ControllerGroup {
 
 
     @RequestMapping(value = "/group", method = RequestMethod.POST)
-    public void addGroup(@RequestParam(value="number") String number, @RequestParam(value="department", required=false) String department) {
-        groupRepository.save(new Group(number, department));
+    public Group addGroup(@RequestBody Group group) {
+        return groupRepository.save(group);
     }
 
     @RequestMapping("/group/{id}")
@@ -48,11 +49,6 @@ public class ControllerGroup {
     @RequestMapping(value = "/group/{id}", method = RequestMethod.DELETE)
     public void deleteGroup(@PathVariable long id) {
         groupRepository.delete(id);
-    }
-
-    @RequestMapping("/group/{id}/student")
-    public Collection<Student> getStudentsOfGroup(@PathVariable long id) {
-        return groupRepository.find(id).getStudents();
     }
 
     @RequestMapping(value = "/group/{id}/student/{student_id}", method = RequestMethod.PUT)
