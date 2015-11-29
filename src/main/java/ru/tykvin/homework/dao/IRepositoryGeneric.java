@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import ru.tykvin.homework.domain.Student;
-
 public interface IRepositoryGeneric<T> {
 
     @Transactional

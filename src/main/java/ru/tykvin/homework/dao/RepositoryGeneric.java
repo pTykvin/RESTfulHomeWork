@@ -3,13 +3,10 @@ package ru.tykvin.homework.dao;
 import java.util.Collection;
 import java.util.List;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
-
-import ru.tykvin.homework.domain.Student;
 
 @Repository
 public class RepositoryGeneric<T> implements IRepositoryGeneric<T> {

@@ -53,9 +53,6 @@ public class ControllerGroupTest {
     @Autowired
     private IRepositoryStudent repositoryStudent;
 
-    @Autowired
-    private IServiceGroupOperations operations;
-
     private Student student1;
     private Student student2;
     private Group group1;

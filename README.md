@@ -1,5 +1,7 @@
 # RESTfulHomeWork
+
 **<span color="orange">Важно!</span><br>Перед запуском сборки настройте подключение к БД в файле application.properties**
+
 #### Сборка
 
 Linux:
@@ -8,12 +10,13 @@ $ ./gradlew build
 ```
 Windows:
 ```
-gradlew.bat build
+> gradlew.bat build
 ```
 
 #### Запуск
 ```
 $ java -jar build/libs/rest-service-1.0.jar
+Сервер запустится на порту том порту, который указан в application.properties. По-умолчанию :48080
 ```
 ## Список команд
 результат | путь | метод | Content-Type | параметры

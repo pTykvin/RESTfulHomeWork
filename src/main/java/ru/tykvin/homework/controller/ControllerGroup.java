@@ -7,13 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ru.tykvin.homework.Help;
 import ru.tykvin.homework.dao.IRepositoryGroup;
 import ru.tykvin.homework.domain.Group;
-import ru.tykvin.homework.domain.Student;
 import ru.tykvin.homework.service.IServiceGroupOperations;
 
 @RestController
@@ -25,12 +22,7 @@ public class ControllerGroup {
     @Autowired
     private IServiceGroupOperations operations;
 
-    @RequestMapping("/")
-    public String startPage() throws Exception {
-        return Help.text;
-    }
-
-    @RequestMapping("/group")
+    @RequestMapping(value = {"/group", "/"})
     public Collection<Group> getAllGroups() {
         return groupRepository.findAll();
     }
