@@ -1,6 +1,6 @@
 # RESTfulHomeWork
 
-**<span color="orange">Важно!</span><br>Перед запуском сборки настройте подключение к БД в файле application.properties**
+**<span color="orange">Важно!</span><br>Перед началом сборки настройте подключение к БД в файле application.properties**
 
 #### Сборка
 
