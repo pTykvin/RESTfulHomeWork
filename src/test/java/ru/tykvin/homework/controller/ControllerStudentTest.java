@@ -27,6 +27,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ru.tykvin.homework.Application;
 import ru.tykvin.homework.dao.IRepositoryStudent;
+import ru.tykvin.homework.domain.Group;
 import ru.tykvin.homework.domain.Student;
 
 import static org.junit.Assert.assertEquals;
@@ -94,8 +95,11 @@ public class ControllerStudentTest {
         Student beforeDelete = get("/student/" + student1.getId(), Student.class);
         assertNotNull(beforeDelete);
         delete("/student/" + student1.getId());
-        Student afterDelete = get("/student/" + student1.getId(), Student.class);
-        assertNull(afterDelete);
+        try {
+            get("/student/" + student1.getId(), Student.class);
+        } catch (RuntimeException e) {
+            assertEquals(Student.class.getSimpleName() + " with id " + student1.getId() + " not found", e.getMessage());
+        }
     }
 
     private void delete(String path) throws URISyntaxException {

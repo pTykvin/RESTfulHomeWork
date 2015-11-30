@@ -15,7 +15,7 @@ Windows:
 
 #### Запуск
 ```
-$ java -jar build/libs/rest-service-1.0.jar
+$ java -jar build/libs/rest-homework-1.0.jar
 Сервер запустится на порту том порту, который указан в application.properties.
 По-умолчанию :8080
 ```

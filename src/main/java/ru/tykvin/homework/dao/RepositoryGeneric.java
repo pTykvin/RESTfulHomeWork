@@ -48,7 +48,11 @@ public class RepositoryGeneric<T> implements IRepositoryGeneric<T> {
 
     @Override
     public T find(Long id) {
-        return entityManager.find(type, id);
+        final T entity = entityManager.find(type, id);
+        if (entity == null) {
+            throw new RuntimeException(type.getSimpleName() + " with id " + id + " not found");
+        }
+        return entity;
     }
 
     @Override

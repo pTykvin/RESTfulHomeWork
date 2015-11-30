@@ -9,7 +9,9 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.hibernate.Hibernate;
 import org.hibernate.proxy.HibernateProxy;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -107,12 +109,15 @@ public class ControllerGroupTest {
     }
 
     @Test
-    public void testDeleteGroup() throws Exception {
+    public void testDeleteGroup() throws URISyntaxException {
         Group beforeDelete = get("/group/" + group1.getId(), Group.class);
         assertNotNull(beforeDelete);
         delete("/group/" + group1.getId());
-        Group afterDelete = get("/group/" + group1.getId(), Group.class);
-        assertNull(afterDelete);
+        try {
+            get("/group/" + group1.getId(), Group.class);
+        } catch (RuntimeException e) {
+            assertEquals(Group.class.getSimpleName() + " with id " + group1.getId() + " not found", e.getMessage());
+        }
     }
 
     @Test
