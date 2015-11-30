@@ -29,6 +29,7 @@ import ru.tykvin.homework.Application;
 import ru.tykvin.homework.dao.IRepositoryStudent;
 import ru.tykvin.homework.domain.Group;
 import ru.tykvin.homework.domain.Student;
+import ru.tykvin.homework.exception.UnprocessableEntityException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -97,7 +98,7 @@ public class ControllerStudentTest {
         delete("/student/" + student1.getId());
         try {
             get("/student/" + student1.getId(), Student.class);
-        } catch (RuntimeException e) {
+        } catch (UnprocessableEntityException e) {
             assertEquals(Student.class.getSimpleName() + " with id " + student1.getId() + " not found", e.getMessage());
         }
     }

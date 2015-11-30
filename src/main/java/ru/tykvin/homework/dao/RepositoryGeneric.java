@@ -8,6 +8,8 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
+import ru.tykvin.homework.exception.UnprocessableEntityException;
+
 @Repository
 public class RepositoryGeneric<T> implements IRepositoryGeneric<T> {
 
@@ -50,7 +52,7 @@ public class RepositoryGeneric<T> implements IRepositoryGeneric<T> {
     public T find(Long id) {
         final T entity = entityManager.find(type, id);
         if (entity == null) {
-            throw new RuntimeException(type.getSimpleName() + " with id " + id + " not found");
+            throw new UnprocessableEntityException(type.getSimpleName() + " with id " + id + " not found");
         }
         return entity;
     }

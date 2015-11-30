@@ -35,6 +35,7 @@ import ru.tykvin.homework.dao.IRepositoryGroup;
 import ru.tykvin.homework.dao.IRepositoryStudent;
 import ru.tykvin.homework.domain.Group;
 import ru.tykvin.homework.domain.Student;
+import ru.tykvin.homework.exception.UnprocessableEntityException;
 import ru.tykvin.homework.service.IServiceGroupOperations;
 
 import static org.junit.Assert.assertEquals;
@@ -115,7 +116,7 @@ public class ControllerGroupTest {
         delete("/group/" + group1.getId());
         try {
             get("/group/" + group1.getId(), Group.class);
-        } catch (RuntimeException e) {
+        } catch (UnprocessableEntityException e) {
             assertEquals(Group.class.getSimpleName() + " with id " + group1.getId() + " not found", e.getMessage());
         }
     }
