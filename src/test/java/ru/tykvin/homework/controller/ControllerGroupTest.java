@@ -116,8 +116,11 @@ public class ControllerGroupTest {
     }
 
     @Test
-    public void testMoveStudent() {
-        put("/group/" + group1.getId() + "/student/" + student1.getId(), null);
+    public void testMoveStudent() throws Exception {
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        HttpEntity<String> request = new HttpEntity<>("student_id=" + student1.getId(), requestHeaders);
+        put("/group/" + group1.getId() + "/student", request);
         Group modifiedGroup = get("/group/" + group1.getId(), Group.class);
         assertEquals(1, modifiedGroup.getStudents().size());
         assertEquals(student1, modifiedGroup.getStudents().iterator().next());
@@ -125,7 +128,10 @@ public class ControllerGroupTest {
 
     @Test
     public void testRemoveStudent() throws Exception {
-        put("/group/" + group1.getId() + "/student/" + student1.getId(), null);
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        HttpEntity<String> request = new HttpEntity<>("student_id=" + student1.getId(), requestHeaders);
+        put("/group/" + group1.getId() + "/student", request);
         Group modifiedGroup = get("/group/" + group1.getId(), Group.class);
         assertEquals(1, modifiedGroup.getStudents().size());
         assertEquals(student1, modifiedGroup.getStudents().iterator().next());

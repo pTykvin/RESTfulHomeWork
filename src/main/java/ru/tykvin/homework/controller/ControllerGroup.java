@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ru.tykvin.homework.dao.IRepositoryGroup;
@@ -27,7 +28,6 @@ public class ControllerGroup {
         return groupRepository.findAll();
     }
 
-
     @RequestMapping(value = "/group", method = RequestMethod.POST)
     public Group addGroup(@RequestBody Group group) {
         return groupRepository.save(group);
@@ -43,8 +43,8 @@ public class ControllerGroup {
         groupRepository.delete(id);
     }
 
-    @RequestMapping(value = "/group/{id}/student/{student_id}", method = RequestMethod.PUT)
-    public void moveStudent(@PathVariable long id, @PathVariable long student_id) {
+    @RequestMapping(value = "/group/{id}/student", method = RequestMethod.PUT)
+    public void moveStudent(@PathVariable long id, @RequestParam long student_id) {
         operations.moveStudentToGroup(id, student_id);
     }
 

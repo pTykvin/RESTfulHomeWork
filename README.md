@@ -29,5 +29,5 @@ $ java -jar build/libs/rest-service-1.0.jar
 получить список всех групп со студентами | /group | GET | |
 создать группу | /group | POST | application/json | {"number":""}
 удалить группу | /group/{id} | DELETE | | id группы
-переместить студента в группу | /group/{id}/student/{student_id} | PUT | | id группы; {student_id} - id студента
+переместить студента в группу | /group/{id}/student | PUT | application/x-www-form-urlencoded | id группы, student_id=""
 удалить студента из группы | /group/{id}/student/{student_id} | DELETE | | id группы; {student_id} - id студента
